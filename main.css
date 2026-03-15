@@ -231,7 +231,8 @@ footer a:hover {
 
 .text {
     width: 935px;
-    img{
+
+    img {
         height: 400px;
         width: 450px;
     }
@@ -414,7 +415,7 @@ body > div.me > div > p:nth-child(1)::after {
 }
 
 .flip-back a {
-    margin-top:-10px;
+    margin-top: -10px;
     color: #ffffff;
     text-decoration: underline;
     font-size: 0.95rem;
@@ -512,11 +513,10 @@ footer {
 
 .hero-section {
     position: relative;
-    min-height: 75vh; /* земи 90% од висината на прозорецот */
+    min-height: 75vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    /*padding: 60px 20px;*/
     overflow: hidden;
 }
 
@@ -576,6 +576,11 @@ footer {
     font-size: 48px;
     font-weight: bold;
     margin: 0;
+    color: #0d0d61;
+}
+
+body > div > div.hero-content > div > div.left-side > h1 > a {
+    text-decoration: none;
     color: #0d0d61;
 
 }
