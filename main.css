@@ -581,16 +581,6 @@ footer {
 
 }
 
-body > div > div.hero-content > div > div.left-side > h1 > a {
-    text-decoration: none;
-    color: #0d0d61;
-}
-
-body > div > div.hero-content > div > div.left-side > h1 > a:hover {
-    text-decoration: none;
-    color: #0d0d61;
-}
-
 .title {
     font-size: 24px;
     color: #0d0d61;
