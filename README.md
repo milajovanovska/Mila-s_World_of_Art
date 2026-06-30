@@ -118,8 +118,7 @@ GitHub:
 https://github.com/milajovanovska
 
 LinkedIn:
-(Add your LinkedIn profile here)
-
+https://www.linkedin.com/in/milajovanovsska/
 ---
 
 ## License
