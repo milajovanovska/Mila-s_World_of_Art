@@ -3,17 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Merch</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
 <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Me</a>
-    <a href="paintings.html">Paintings</a>
-    <a href="exhibition.html">Exhibition</a>
-    <a href="merch.html">Merch</a>
-    <a href="contact.html">Contact</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="paintings.html">Paintings</a>
+        <a href="exhibition.html">Exhibition</a>
+        <a href="merch.html">Merch</a>
+        <a href="contact.html">Contact</a>
+    </div>
 </nav>
 
 <div class="welcome">
@@ -99,6 +107,7 @@
     </p>
 </footer>
 
+<script src="menu.js"></script>
 
 </body>
 </html>
