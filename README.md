@@ -1,22 +1,129 @@
 # Mila's World of Art
-A personal portfolio website showcasing a curated collection of digital and traditional artworks. 
-This project serves as a professional gallery, focusing on clean UI/UX and responsive web design, as well as short personal CV.
 
-**Note:** This is my first comprehensive web development project. It represents my initial journey into front-end development, where I applied foundational concepts of structural markup, styling logic, and basic interactivity to create a functional real-world application.
+A responsive portfolio website designed to showcase my artwork, artistic journey, exhibitions, interviews, and merchandise in a modern and visually engaging way.
 
-## Project Evolution
-This is a live project that I am continuously updating and refining. As I progress in my web development journey, I plan to introduce more advanced features, optimize performance, and enhance the overall user experience. Future updates will focus on integrating more complex JavaScript functionalities and modern CSS techniques.
+The project combines clean UI design, responsive layouts, and subtle animations to create an immersive browsing experience while serving as my personal online portfolio.
+
+**Live Demo:** https://milajovanovska.github.io/Mila-s_World_of_Art/
 
 ---
 
-## Technical Stack
-* **HTML5:** Semantic markup for accessibility and SEO.
-**CSS3 (Advanced Styling):**
-    * **Responsive Design:** Utilized Media Queries to ensure a seamless user experience across desktop devices.
-    * **Layout Engines:** Implemented **Flexbox** and **CSS Grid** for precise, dynamic alignment of gallery elements.
-    * **Visual Polish:** Applied custom transitions and CSS variables for consistent branding and performance-efficient animations.
+## About the Project
+
+*Mila's World of Art* is a front-end web application developed to present both my artistic work and professional background in a single place.
+
+The website includes:
+
+- Home page with an introduction
+- About Me section
+- Artwork gallery
+- Exhibitions
+- Interviews and media appearances
+- Merchandise
+- Contact information
+
+The goal of this project was not only to build a visually appealing portfolio, but also to practice responsive web development, modern CSS techniques, and interactive user interfaces.
+
 ---
 
-## Live Deployment
-The project is hosted and accessible at: 
-https://milajovanovska.github.io/Mila-s_World_of_Art/
+## Features
+
+- Responsive design for desktop, tablet, and mobile devices
+- Modern navigation with a responsive hamburger menu
+- Interactive image gallery
+- Smooth scrolling animations
+- Hover effects and transitions
+- Clean and organized layout
+- Personal portfolio presentation
+- Merchandise showcase
+- Contact section
+
+---
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Flexbox
+- CSS Grid
+- Media Queries
+- CSS Animations & Transitions
+
+---
+
+## Responsive Design
+
+The website has been optimized for multiple screen sizes using responsive design techniques.
+
+Supported devices include:
+
+- Desktop
+- Laptop
+- Tablet
+- Mobile phones
+
+Responsive improvements include:
+
+- Adaptive layouts
+- Flexible image scaling
+- Responsive gallery
+- Mobile navigation with hamburger menu
+- Optimized spacing and typography
+
+---
+
+## Project Structure
+
+```
+Mila-s_World_of_Art/
+│
+├── index.html
+├── about.html
+├── paintings.html
+├── exhibitions.html
+├── interviews.html
+├── merch.html
+├── contact.html
+│
+├── main.css
+├── script.js
+│
+└── images/
+```
+
+---
+
+## What I Learned
+
+Through this project I gained practical experience with:
+
+- Semantic HTML structure
+- Responsive web design
+- CSS Flexbox
+- CSS Grid
+- Mobile-first thinking
+- JavaScript DOM manipulation
+- Responsive navigation
+- Website organization and file structure
+- Git and GitHub workflow
+
+---
+
+## Author
+
+**Mila Jovanovska**
+
+GitHub:
+https://github.com/milajovanovska
+
+LinkedIn:
+(Add your LinkedIn profile here)
+
+---
+
+## License
+
+This project is intended for educational and portfolio purposes.
+
+Artwork and website content are © Mila Jovanovska. Unauthorized reproduction or commercial use of the artwork is not permitted without permission.
