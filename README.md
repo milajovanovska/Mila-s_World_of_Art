@@ -119,6 +119,7 @@ https://github.com/milajovanovska
 
 LinkedIn:
 https://www.linkedin.com/in/milajovanovsska/
+
 ---
 
 ## License
