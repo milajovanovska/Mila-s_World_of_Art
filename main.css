@@ -21,6 +21,7 @@ body {
     background-color: #e0fbff;
     font-family: 'Raleway', sans-serif;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar {
@@ -1165,5 +1166,166 @@ footer a:hover { color: #e0fbff; }
         width: 100%;
         padding: 12px 0;
         border-top: 1px solid rgba(24, 24, 83, 0.15);
+    }
+}
+
+
+html.dark-mode body {
+    background-color: #14141f;
+}
+
+html.dark-mode .navbar {
+    background-color: #1b1b2f;
+}
+
+html.dark-mode .navbar a {
+    color: #f0f0f5;
+}
+
+html.dark-mode .navbar a:hover {
+    color: #ff9dc4;
+}
+
+html.dark-mode .navbar a::after {
+    background: linear-gradient(to right, #ff77ac, #f0f0f5);
+}
+
+html.dark-mode .menu-toggle span,
+html.dark-mode .hamburger span {
+    background-color: #f0f0f5;
+}
+
+html.dark-mode .nav-links a {
+    border-top: 1px solid rgba(240, 240, 245, 0.15);
+    border-bottom: 1px solid rgba(240, 240, 245, 0.1);
+}
+
+html.dark-mode .welcome h2 {
+    color: #f0f0f5;
+}
+
+html.dark-mode .about-bio {
+    background: linear-gradient(135deg, #1b1b2f, #232345);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+html.dark-mode .bio-text {
+    color: #e8e8f5;
+}
+
+html.dark-mode .section {
+    background: linear-gradient(135deg, #1b1b2f, #26264a);
+    color: #e8e8f5;
+}
+
+html.dark-mode .exhibitionText1,
+html.dark-mode .exhibitionText2,
+html.dark-mode .exhibitionText3 {
+    background: linear-gradient(135deg, #1b1b2f, #26264a);
+    color: #e8e8f5;
+}
+
+html.dark-mode .interviews h2 {
+    color: #f0f0f5;
+}
+
+html.dark-mode .flip-front {
+    background: #232345;
+    color: #f0f0f5;
+}
+
+html.dark-mode .flip-back {
+    background: #0d0d2b;
+    color: #f0f0f5;
+}
+
+html.dark-mode .merchDetails {
+    background: linear-gradient(135deg, #1b1b2f, #26264a);
+    color: #e8e8f5;
+}
+
+html.dark-mode .attention {
+    background: linear-gradient(135deg, #1b1b2f, #26264a);
+    color: #e8e8f5;
+}
+
+html.dark-mode .contact-info {
+    background: rgba(30, 30, 48, 0.65);
+}
+
+html.dark-mode .contact-info h3 {
+    color: #f0f0f5;
+}
+
+html.dark-mode .contact-info li {
+    color: #e0e0f0;
+}
+
+html.dark-mode .merch-card,
+html.dark-mode .sticker-card {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+}
+
+.theme-switch {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1200;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.theme-switch-track {
+    display: block;
+    width: 56px;
+    height: 30px;
+    border-radius: 999px;
+    background: #181853;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.theme-switch-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+html.dark-mode .theme-switch-track {
+    background: #ff77ac;
+}
+
+html.dark-mode .theme-switch-thumb {
+    transform: translateX(26px);
+    background: #1b1b2f;
+}
+
+@media (max-width: 480px) {
+    .theme-switch {
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .theme-switch-track {
+        width: 48px;
+        height: 26px;
+    }
+
+    .theme-switch-thumb {
+        width: 20px;
+        height: 20px;
+    }
+
+    html.dark-mode .theme-switch-thumb {
+        transform: translateX(22px);
     }
 }

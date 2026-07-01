@@ -5,8 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
     <link rel="stylesheet" href="main.css">
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
+
 </head>
 <body>
+
+<button class="theme-switch" id="themeToggle" type="button" aria-label="Change theme" aria-pressed="false">
+    <span class="theme-switch-track">
+        <span class="theme-switch-thumb"></span>
+    </span>
+</button>
+
 <nav class="navbar">
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
         <span></span>
@@ -27,7 +41,7 @@
 </div>
 
 <div class="about-bio reveal">
-    <img src="images/me_img.jpg" alt="Mila" class="bio-img"/>
+    <img src="images/me2.jpg" alt="Mila" class="bio-img"/>
     <div class="bio-text">
         <p>Hi, I'm Mila Jovanovska, a 20 year old from Skopje, North Macedonia. I've always been a dedicated
             student, winning awards and participating in competitions in math, arts, and languages. I'm currently
@@ -67,6 +81,7 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="theme.js"></script>
 <script src="menu.js"></script>
 
 </body>

@@ -5,8 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Me</title>
     <link rel="stylesheet" href="main.css">
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
+
 </head>
 <body>
+
+<button class="theme-switch" id="themeToggle" type="button" aria-label="Change theme" aria-pressed="false">
+    <span class="theme-switch-track">
+        <span class="theme-switch-thumb"></span>
+    </span>
+</button>
+
 
 <nav class="navbar">
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
@@ -69,6 +83,7 @@
 
 </footer>
 
+<script src="theme.js"></script>
 <script src="menu.js"></script>
 
 </body>
