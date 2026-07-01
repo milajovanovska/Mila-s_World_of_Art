@@ -75,19 +75,19 @@ Responsive improvements include:
 
 ## Project Structure
 
-```
+```text
 Mila-s_World_of_Art/
 │
 ├── index.html
 ├── about.html
 ├── paintings.html
-├── exhibitions.html
-├── interviews.html
+├── exhibition.html
 ├── merch.html
 ├── contact.html
 │
 ├── main.css
 ├── script.js
+├── theme.js
 │
 └── images/
 ```
