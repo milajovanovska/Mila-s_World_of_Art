@@ -378,13 +378,13 @@ footer a:hover { color: #e0fbff; }
     height: clamp(190px, 28vw, 280px);
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(13, 13, 97, 0.35);
     transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .gallery a:hover img {
     transform: scale(1.06) translateY(-4px);
-    box-shadow: 0 16px 36px rgba(0,0,0,0.18);
+    box-shadow: 0 16px 40px rgba(13, 13, 97, 0.45);
 }
 
 .gallery a {
@@ -415,8 +415,8 @@ footer a:hover { color: #e0fbff; }
     width: auto;
     max-width: 100%;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(13, 13, 97, 0.2);
-    transition: transform 0.35s ease;
+    box-shadow: 0 10px 30px rgba(13, 13, 97, 0.35);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .imgInterviews1 img:hover { transform: scale(1.03); }
@@ -436,8 +436,8 @@ footer a:hover { color: #e0fbff; }
     width: auto;
     max-width: 100%;
     border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(13, 13, 97, 0.2);
-    transition: transform 0.35s ease;
+    box-shadow: 0 10px 30px rgba(13, 13, 97, 0.35);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .imgInterviews2 img:hover { transform: scale(1.03); }
@@ -540,7 +540,7 @@ footer a:hover { color: #e0fbff; }
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 28px rgba(13, 13, 97, 0.15);
+    box-shadow: 0 10px 30px rgba(13, 13, 97, 0.35);
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
     display: block;
     text-decoration: none;
@@ -553,7 +553,7 @@ footer a:hover { color: #e0fbff; }
 .merch-card--offset:hover { transform: translateY(-46px) scale(1.04); }
 .merch-card:not(.merch-card--offset):hover {
     transform: scale(1.04) translateY(-6px);
-    box-shadow: 0 20px 48px rgba(13, 13, 97, 0.22);
+    box-shadow: 0 20px 48px rgba(13, 13, 97, 0.45);
 }
 
 .merch-card img {
@@ -598,7 +598,7 @@ footer a:hover { color: #e0fbff; }
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 28px rgba(13, 13, 97, 0.15);
+    box-shadow: 0 10px 30px rgba(13, 13, 97, 0.35);
     transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
     display: block;
     width: clamp(180px, 36vw, 240px);
@@ -616,7 +616,7 @@ footer a:hover { color: #e0fbff; }
 .sticker-card--offset:hover { transform: translateY(-37px) scale(1.05); }
 .sticker-card:not(.sticker-card--offset):hover {
     transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 20px 48px rgba(13, 13, 97, 0.22);
+    box-shadow: 0 20px 48px rgba(13, 13, 97, 0.45);
 }
 
 .sticker-card .merch-label { opacity: 0; transition: opacity 0.3s ease; }
@@ -1328,4 +1328,26 @@ html.dark-mode .theme-switch-thumb {
     html.dark-mode .theme-switch-thumb {
         transform: translateX(22px);
     }
+}
+html.dark-mode .gallery img {
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.25);
+}
+
+html.dark-mode .gallery a:hover img {
+    box-shadow: 0 16px 40px rgba(255, 255, 255, 0.35);
+}
+
+html.dark-mode .imgInterviews1 img,
+html.dark-mode .imgInterviews2 img {
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.25);
+}
+
+html.dark-mode .merch-card,
+html.dark-mode .sticker-card {
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+}
+
+html.dark-mode .merch-card:not(.merch-card--offset):hover,
+html.dark-mode .sticker-card:not(.sticker-card--offset):hover {
+    box-shadow: 0 20px 48px rgba(255, 255, 255, 0.3);
 }
