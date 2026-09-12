@@ -37,8 +37,14 @@
         <a href="contact.html">Contact</a>
     </div>
 </nav>
-<div class="welcome">
-    <h2>Let's stay in touch!</h2>
+<div class="talk-hero">
+    <h2 class="talk-hero-title">Have a painting in mind?<br>Let's talk.</h2>
+    <p class="talk-hero-subtitle">
+        Whether you've found a piece you love, have a question about an artwork, or have an idea of your own — tell me about it.
+    </p>
+    <button type="button" class="start-conversation-btn" id="startConversationBtn">
+        ✦ Start a conversation
+    </button>
 </div>
 <div class="attention">
     <p>
@@ -78,6 +84,48 @@
     </ul>
 </div>
 
+<div class="conversation-modal-overlay" id="conversationModalOverlay">
+    <div class="conversation-modal" role="dialog" aria-modal="true" aria-labelledby="conversationModalTitle">
+        <button type="button" class="conversation-modal-close" id="conversationModalClose" aria-label="Close">&times;</button>
+        <h3 id="conversationModalTitle" class="conversation-modal-title">How can I help?</h3>
+        <p class="conversation-modal-subtitle">Pick what fits best — I'll take it from there.</p>
+
+        <div class="conversation-options">
+            <a class="conversation-option" href="mailto:milasworldofart@yahoo.com?subject=Question%20about%20an%20artwork">
+                <span class="conversation-option-icon">I.</span>
+                <span class="conversation-option-copy">
+                    <span class="conversation-option-title">Ask about an artwork</span>
+                    <span class="conversation-option-desc">Questions about a piece you've seen</span>
+                </span>
+            </a>
+
+            <a class="conversation-option" href="mailto:milasworldofart@yahoo.com?subject=An%20idea%20for%20a%20painting">
+                <span class="conversation-option-icon">II.</span>
+                <span class="conversation-option-copy">
+                    <span class="conversation-option-title">Tell me your idea</span>
+                    <span class="conversation-option-desc">Share a concept you have in mind</span>
+                </span>
+            </a>
+
+            <a class="conversation-option" href="mailto:milasworldofart@yahoo.com?subject=Artwork%20request">
+                <span class="conversation-option-icon">III.</span>
+                <span class="conversation-option-copy">
+                    <span class="conversation-option-title">Request an artwork</span>
+                    <span class="conversation-option-desc">Ask about buying or reserving a piece</span>
+                </span>
+            </a>
+
+            <a class="conversation-option" href="mailto:milasworldofart@yahoo.com?subject=See%20an%20artwork%20in%20my%20space">
+                <span class="conversation-option-icon">IV.</span>
+                <span class="conversation-option-copy">
+                    <span class="conversation-option-title">See an artwork in my space</span>
+                    <span class="conversation-option-desc">Find out how a piece could look at home</span>
+                </span>
+            </a>
+        </div>
+    </div>
+</div>
+
 <footer>
     <p>&copy; 2025 Mila Jovanovska. All rights reserved.</p>
 
@@ -85,6 +133,7 @@
 
 <script src="theme.js"></script>
 <script src="menu.js"></script>
+<script src="contact.js"></script>
 
 </body>
 </html>
