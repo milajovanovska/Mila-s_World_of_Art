@@ -1740,3 +1740,12 @@ html.dark-mode .artwork-request-form textarea {
     justify-content: center;
     margin-top: 14px;
 }
+.artwork-request-form input[type="file"] {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    color: #181853;
+}
+
+html.dark-mode .artwork-request-form input[type="file"] {
+    color: #f0f0f5;
+}

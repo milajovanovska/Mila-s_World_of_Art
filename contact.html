@@ -145,6 +145,51 @@
             </form>
         </div>
 
+        <div class="conversation-view" id="conversationCustomFormView" hidden>
+            <button type="button" class="conversation-back-btn" id="conversationCustomBackBtn">Back</button>
+            <h3 class="conversation-modal-title">Tell me your idea</h3>
+            <p class="conversation-modal-subtitle">Describe the piece you have in mind</p>
+
+            <form id="conversationCustomForm" class="artwork-request-form">
+                <label for="customName">Your name</label>
+                <input type="text" id="customName" name="name" required>
+
+                <label for="customEmail">Your email</label>
+                <input type="email" id="customEmail" name="email" required>
+
+                <label for="customDescription">Describe the artwork</label>
+                <textarea id="customDescription" name="description" rows="3" required></textarea>
+
+                <label for="customColors">Preferred colors</label>
+                <input type="text" id="customColors" name="colors">
+
+                <label for="customMood">Mood</label>
+                <input type="text" id="customMood" name="mood">
+
+                <label for="customSubject">Subject or theme</label>
+                <input type="text" id="customSubject" name="subject_theme">
+
+                <label for="customDimensions">Approximate dimensions</label>
+                <input type="text" id="customDimensions" name="dimensions">
+
+                <label for="customRoom">Intended room or space</label>
+                <input type="text" id="customRoom" name="room">
+
+                <label for="customNotes">Additional notes</label>
+                <textarea id="customNotes" name="notes" rows="2"></textarea>
+
+                <label for="customImage">Reference image (optional)</label>
+                <input type="file" id="customImage" name="image" accept="image/*">
+                <p class="artwork-request-status">A reference image is inspiration only. It won't be reproduced exactly.</p>
+
+                <div class="recaptcha-wrapper">
+                    <div class="g-recaptcha" data-sitekey="6LcmN7ktAAAAALiV4lNaFJRe4CM0i5CnGiHemQm7"></div>
+                </div>
+
+                <button type="submit" class="artwork-request-submit" id="conversationCustomSubmitBtn">Send idea</button>
+            </form>
+        </div>
+
         <div class="conversation-view" id="conversationSuccessView" hidden>
             <h3 class="conversation-modal-title">Message sent</h3>
             <p class="conversation-modal-subtitle">Thank you! I'll get back to you soon.</p>

@@ -57,7 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
+    function validateRequiredFields(formEl) {
+        const requiredFields = formEl.querySelectorAll('[required]');
+        for (const field of requiredFields) {
+            if (!field.value.trim()) {
+                alert('Please fill in all required fields before sending.');
+                field.focus();
+                return false;
+            }
+        }
+        return true;
+    }
+
     document.querySelectorAll('.request-artwork-btn').forEach(btn => {
+
         btn.addEventListener('click', () => {
             const card = btn.closest('.painting-card');
             const title = card.dataset.title || 'this artwork';
@@ -79,6 +92,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
+
+        if (!validateRequiredFields(form)) return;
 
         const captchaToken = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : '';
         if (!captchaToken) {
