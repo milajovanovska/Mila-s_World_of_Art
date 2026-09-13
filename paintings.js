@@ -1,12 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const YOUR_EMAIL = 'milasworldofart@yahoo.com';
-
     function normalizeStatus(text) {
         return (text || '').trim().toLowerCase();
     }
 
     function labelForStatus(status) {
-        if (status === 'available') return '✦ Request this artwork';
+        if (status === 'available') return 'Request this artwork';
         if (status === 'reserved') return 'Ask about this artwork';
         if (status === 'sold') return 'Ask about this piece';
         return 'Ask about this piece';
@@ -24,14 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const overlay = document.getElementById('artworkRequestModalOverlay');
     const closeBtn = document.getElementById('artworkRequestModalClose');
+    const detailsView = document.getElementById('artworkRequestDetailsView');
+    const successView = document.getElementById('artworkRequestSuccessView');
     const titleEl = document.getElementById('artworkRequestModalTitle');
     const statusEl = document.getElementById('artworkRequestStatus');
     const imgEl = document.getElementById('artworkRequestImage');
     const form = document.getElementById('artworkRequestForm');
+    const submitBtn = form ? form.querySelector('.artwork-request-submit') : null;
 
     if (!overlay || !form) return;
 
+    function showView(view) {
+        [detailsView, successView].forEach(v => { v.hidden = (v !== view); });
+    }
+
     function openModal(title, status, imgSrc) {
+        showView(detailsView);
         titleEl.textContent = title;
         statusEl.textContent = status;
         if (imgSrc) {
@@ -73,25 +79,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        const name = form.elements['name'].value.trim();
-        const email = form.elements['email'].value.trim();
-        const message = form.elements['message'].value.trim();
+
+        const captchaToken = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : '';
+        if (!captchaToken) {
+            alert('Please confirm the "I am not a robot" checkbox before sending.');
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
         const title = form.dataset.artworkTitle;
         const status = form.dataset.artworkStatus;
+        const userMessage = form.elements['message'].value.trim();
 
-        const subject = `Artwork Request — ${title}`;
-        const bodyLines = [
-            `Artwork: ${title}`,
-            `Availability: ${status}`,
-            `Name: ${name}`,
-            `Email: ${email}`,
-            '',
-            'Message:',
-            message || '(no message provided)'
-        ];
-        const mailto = `mailto:${YOUR_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
-        window.location.href = mailto;
-        closeModal();
-        form.reset();
+        const templateParams = {
+            subject: `Artwork Request — ${title}`,
+            from_name: form.elements['name'].value.trim(),
+            from_email: form.elements['email'].value.trim(),
+            message: `Artwork: ${title}\nAvailability: ${status}\n\n${userMessage || '(no message provided)'}`,
+            'g-recaptcha-response': captchaToken
+        };
+
+        emailjs.send(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, templateParams)
+            .then(() => {
+                showView(successView);
+                form.reset();
+                grecaptcha.reset();
+            })
+            .catch((err) => {
+                console.error('EmailJS error:', err);
+                alert('Something went wrong sending your request. Please try again, or email me directly at milasworldofart@yahoo.com.');
+                grecaptcha.reset();
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send request';
+            });
     });
 });

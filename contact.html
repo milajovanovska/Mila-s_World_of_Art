@@ -87,50 +87,77 @@
 <div class="conversation-modal-overlay" id="conversationModalOverlay">
     <div class="conversation-modal" role="dialog" aria-modal="true" aria-labelledby="conversationModalTitle">
         <button type="button" class="conversation-modal-close" id="conversationModalClose" aria-label="Close">&times;</button>
-        <h3 id="conversationModalTitle" class="conversation-modal-title">How can I help?</h3>
-        <p class="conversation-modal-subtitle">Pick what fits best — I'll take it from there.</p>
 
-        <div class="conversation-options">
-            <a class="conversation-option" href="mailto:milasworldofart@yahoo.com?subject=Question%20about%20an%20artwork">
-                <span class="conversation-option-icon">I.</span>
-                <span class="conversation-option-copy">
-                    <span class="conversation-option-title">Ask about an artwork</span>
-                    <span class="conversation-option-desc">Questions about a piece you've seen</span>
-                </span>
-            </a>
+        <div class="conversation-view" id="conversationOptionsView">
+            <h3 id="conversationModalTitle" class="conversation-modal-title">How can I help?</h3>
+            <p class="conversation-modal-subtitle">Pick what fits best & I'll take it from there.</p>
 
-            <a class="conversation-option" href="mailto:milasworldofart@yahoo.com?subject=An%20idea%20for%20a%20painting">
-                <span class="conversation-option-icon">II.</span>
-                <span class="conversation-option-copy">
-                    <span class="conversation-option-title">Tell me your idea</span>
-                    <span class="conversation-option-desc">Share a concept you have in mind</span>
-                </span>
-            </a>
+            <div class="conversation-options">
+                <button type="button" class="conversation-option" data-topic="Question about an artwork">
+                    <span class="conversation-option-copy">
+                        <span class="conversation-option-title">Ask about an artwork</span>
+                        <span class="conversation-option-desc">Questions about a piece you've seen</span>
+                    </span>
+                </button>
 
-            <a class="conversation-option" href="mailto:milasworldofart@yahoo.com?subject=Artwork%20request">
-                <span class="conversation-option-icon">III.</span>
-                <span class="conversation-option-copy">
-                    <span class="conversation-option-title">Request an artwork</span>
-                    <span class="conversation-option-desc">Ask about buying or reserving a piece</span>
-                </span>
-            </a>
+                <button type="button" class="conversation-option" data-topic="An idea for a painting">
+                    <span class="conversation-option-copy">
+                        <span class="conversation-option-title">Tell me your idea</span>
+                        <span class="conversation-option-desc">Share a concept you have in mind</span>
+                    </span>
+                </button>
 
-            <a class="conversation-option" href="mailto:milasworldofart@yahoo.com?subject=See%20an%20artwork%20in%20my%20space">
-                <span class="conversation-option-icon">IV.</span>
-                <span class="conversation-option-copy">
-                    <span class="conversation-option-title">See an artwork in my space</span>
-                    <span class="conversation-option-desc">Find out how a piece could look at home</span>
-                </span>
-            </a>
+                <button type="button" class="conversation-option" data-topic="Artwork request">
+                    <span class="conversation-option-copy">
+                        <span class="conversation-option-title">Request an artwork</span>
+                        <span class="conversation-option-desc">Ask about buying or reserving a piece</span>
+                    </span>
+                </button>
+
+                <button type="button" class="conversation-option" data-topic="See an artwork in my space">
+                    <span class="conversation-option-copy">
+                        <span class="conversation-option-title">See an artwork in my space</span>
+                        <span class="conversation-option-desc">Find out how a piece could look at home</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="conversation-view" id="conversationFormView" hidden>
+            <button type="button" class="conversation-back-btn" id="conversationBackBtn">Back</button>
+            <h3 class="conversation-modal-title" id="conversationFormTitle">Ask about an artwork</h3>
+
+            <form id="conversationForm" class="artwork-request-form">
+                <label for="conversationName">Your name</label>
+                <input type="text" id="conversationName" name="name" required>
+
+                <label for="conversationEmail">Your email</label>
+                <input type="email" id="conversationEmail" name="email" required>
+
+                <label for="conversationMessage">Your message</label>
+                <textarea id="conversationMessage" name="message" rows="4" required></textarea>
+
+                <div class="recaptcha-wrapper">
+                    <div class="g-recaptcha" data-sitekey="6LcmN7ktAAAAALiV4lNaFJRe4CM0i5CnGiHemQm7"></div>
+                </div>
+
+                <button type="submit" class="artwork-request-submit" id="conversationSubmitBtn">Send message</button>
+            </form>
+        </div>
+
+        <div class="conversation-view" id="conversationSuccessView" hidden>
+            <h3 class="conversation-modal-title">Message sent</h3>
+            <p class="conversation-modal-subtitle">Thank you! I'll get back to you soon.</p>
         </div>
     </div>
-</div>
-
-<footer>
+</div><footer>
     <p>&copy; 2025 Mila Jovanovska. All rights reserved.</p>
 
 </footer>
 
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="email-config.js"></script>
 <script src="theme.js"></script>
 <script src="menu.js"></script>
 <script src="contact.js"></script>

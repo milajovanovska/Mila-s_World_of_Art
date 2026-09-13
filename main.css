@@ -1540,14 +1540,6 @@ html.dark-mode .sticker-card:not(.sticker-card--offset):hover {
     box-shadow: 0 10px 24px rgba(13, 13, 97, 0.12);
     background: linear-gradient(135deg, #e0fbff, #c8ecff);
 }
-
-.conversation-option-icon {
-    font-size: 22px;
-    flex-shrink: 0;
-    width: 36px;
-    text-align: center;
-}
-
 .conversation-option-copy {
     display: flex;
     flex-direction: column;
@@ -1742,4 +1734,9 @@ html.dark-mode .artwork-request-form textarea {
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(255, 255, 255, 0.15);
     color: #f0f0f5;
+}
+.recaptcha-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 14px;
 }
