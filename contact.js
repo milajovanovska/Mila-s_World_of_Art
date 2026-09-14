@@ -1,3 +1,15 @@
+let recaptchaConversationWidgetId = null;
+let recaptchaCustomWidgetId = null;
+
+window.onRecaptchaApiLoad = function () {
+    recaptchaConversationWidgetId = grecaptcha.render('recaptchaConversation', {
+        sitekey: '6LcmN7ktAAAAALiV4lNaFJRe4CM0i5CnGiHemQm7'
+    });
+    recaptchaCustomWidgetId = grecaptcha.render('recaptchaCustom', {
+        sitekey: '6LcmN7ktAAAAALiV4lNaFJRe4CM0i5CnGiHemQm7'
+    });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const startBtn = document.getElementById('startConversationBtn');
     const overlay = document.getElementById('conversationModalOverlay');
@@ -12,6 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('conversationSubmitBtn');
 
     if (!startBtn || !overlay) return;
+
+    const customFormView = document.getElementById('conversationCustomFormView');
+    const customForm = document.getElementById('conversationCustomForm');
+    const customSubmitBtn = document.getElementById('conversationCustomSubmitBtn');
+    const customBackBtn = document.getElementById('conversationCustomBackBtn');
 
     function showView(view) {
         [optionsView, formView, successView, customFormView].forEach(v => { if (v) v.hidden = (v !== view); });
@@ -51,11 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
     });
 
-    const customFormView = document.getElementById('conversationCustomFormView');
-    const customForm = document.getElementById('conversationCustomForm');
-    const customSubmitBtn = document.getElementById('conversationCustomSubmitBtn');
-    const customBackBtn = document.getElementById('conversationCustomBackBtn');
-
     document.querySelectorAll('.conversation-option').forEach(btn => {
         btn.addEventListener('click', () => {
             if (btn.dataset.topic === 'An idea for a painting') {
@@ -91,8 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!validateRequiredFields(customForm)) return;
 
-            const captchaToken = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : '';
-
+            const captchaToken = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse(recaptchaCustomWidgetId) : '';
             if (!captchaToken) {
                 alert('Please confirm the "I am not a robot" checkbox before sending.');
                 return;
@@ -136,12 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(() => {
                     showView(successView);
                     customForm.reset();
-                    grecaptcha.reset();
+                    grecaptcha.reset(recaptchaCustomWidgetId);
                 })
                 .catch((err) => {
                     console.error('Custom request error:', err);
                     alert('Something went wrong sending your idea. Please try again, or email me directly at milasworldofart@yahoo.com.');
-                    grecaptcha.reset();
+                    grecaptcha.reset(recaptchaCustomWidgetId);
                 })
                 .finally(() => {
                     customSubmitBtn.disabled = false;
@@ -155,8 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!validateRequiredFields(form)) return;
 
-        const captchaToken = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse() : '';
-
+        const captchaToken = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse(recaptchaConversationWidgetId) : '';
         if (!captchaToken) {
             alert('Please confirm the "I am not a robot" checkbox before sending.');
             return;
@@ -177,12 +187,12 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(() => {
                 showView(successView);
                 form.reset();
-                grecaptcha.reset();
+                grecaptcha.reset(recaptchaConversationWidgetId);
             })
             .catch((err) => {
                 console.error('EmailJS error:', err);
                 alert('Something went wrong sending your message. Please try again, or email me directly at milasworldofart@yahoo.com.');
-                grecaptcha.reset();
+                grecaptcha.reset(recaptchaConversationWidgetId);
             })
             .finally(() => {
                 submitBtn.disabled = false;

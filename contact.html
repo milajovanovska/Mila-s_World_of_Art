@@ -40,10 +40,11 @@
 <div class="talk-hero">
     <h2 class="talk-hero-title">Have a painting in mind?<br>Let's talk.</h2>
     <p class="talk-hero-subtitle">
-        Whether you've found a piece you love, have a question about an artwork, or have an idea of your own - tell me about it.
+        Whether you've found a piece you love, have a question about an artwork, or have an idea of your own - tell me
+        about it.
     </p>
     <button type="button" class="start-conversation-btn" id="startConversationBtn">
-         Start a conversation
+        Start a conversation
     </button>
 </div>
 <div class="attention">
@@ -72,7 +73,8 @@
             </a>
         </li>
         <li>TikTok:
-            <a href="https://www.tiktok.com/@milas_worldofart?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.tiktok.com/@milas_worldofart?is_from_webapp=1&sender_device=pc" target="_blank"
+               rel="noopener noreferrer">
                 @milas_worldofart
             </a>
         </li>
@@ -86,7 +88,8 @@
 
 <div class="conversation-modal-overlay" id="conversationModalOverlay">
     <div class="conversation-modal" role="dialog" aria-modal="true" aria-labelledby="conversationModalTitle">
-        <button type="button" class="conversation-modal-close" id="conversationModalClose" aria-label="Close">&times;</button>
+        <button type="button" class="conversation-modal-close" id="conversationModalClose" aria-label="Close">&times;
+        </button>
 
         <div class="conversation-view" id="conversationOptionsView">
             <h3 id="conversationModalTitle" class="conversation-modal-title">How can I help?</h3>
@@ -138,7 +141,7 @@
                 <textarea id="conversationMessage" name="message" rows="4" required></textarea>
 
                 <div class="recaptcha-wrapper">
-                    <div class="g-recaptcha" data-sitekey="6LcmN7ktAAAAALiV4lNaFJRe4CM0i5CnGiHemQm7"></div>
+                    <div id="recaptchaConversation"></div>
                 </div>
 
                 <button type="submit" class="artwork-request-submit" id="conversationSubmitBtn">Send message</button>
@@ -180,10 +183,11 @@
 
                 <label for="customImage">Reference image (optional)</label>
                 <input type="file" id="customImage" name="image" accept="image/*">
-                <p class="artwork-request-status">A reference image is inspiration only. It won't be reproduced exactly.</p>
+                <p class="artwork-request-status">A reference image is inspiration only. It won't be reproduced
+                    exactly.</p>
 
                 <div class="recaptcha-wrapper">
-                    <div class="g-recaptcha" data-sitekey="6LcmN7ktAAAAALiV4lNaFJRe4CM0i5CnGiHemQm7"></div>
+                    <div id="recaptchaCustom"></div>
                 </div>
 
                 <button type="submit" class="artwork-request-submit" id="conversationCustomSubmitBtn">Send idea</button>
@@ -195,12 +199,13 @@
             <p class="conversation-modal-subtitle">Thank you! I'll get back to you soon.</p>
         </div>
     </div>
-</div><footer>
+</div>
+<footer>
     <p>&copy; 2025 Mila Jovanovska. All rights reserved.</p>
 
 </footer>
 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaApiLoad&render=explicit" async defer></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="email-config.js"></script>
 <script src="theme.js"></script>
