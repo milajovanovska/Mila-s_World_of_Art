@@ -23,6 +23,15 @@
 
 
 <nav class="navbar">
+    <div class="navbar-brand">
+        <a href="index.html" class="navbar-brand-link" aria-label="Mila's World of Art home">
+            <span class="navbar-logo-mark">
+                <img src="images/logo.jpg" alt="">
+            </span>
+            <span class="navbar-brand-text">Mila's World of Art</span>
+        </a>
+    </div>
+
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -169,17 +178,17 @@
                 <label for="customMood">Mood</label>
                 <input type="text" id="customMood" name="mood">
 
-                <label for="customSubject">Subject or theme</label>
+                <label for="customSubject">Subject or theme (optional)</label>
                 <input type="text" id="customSubject" name="subject_theme">
 
-                <label for="customDimensions">Approximate dimensions</label>
-                <input type="text" id="customDimensions" name="dimensions">
+                <label for="customDimensions">Approximate dimensions (in cm)</label>
+                <input type="text" id="customDimensions" name="dimensions" placeholder="e.g. 50x70cm" pattern="^\s*\d+\s*[xX]\s*\d+\s*(cm)?\s*$" title="Please use the format numberXnumber in cm, e.g. 50x70cm">
 
                 <label for="customRoom">Intended room or space</label>
-                <input type="text" id="customRoom" name="room">
+                <input type="text" id="customRoom" name="room" placeholder="e.g. living room, bedroom, office">
 
-                <label for="customNotes">Additional notes</label>
-                <textarea id="customNotes" name="notes" rows="2"></textarea>
+                <label for="customNotes">Additional notes (optional)</label>
+                <textarea id="customNotes" name="notes" rows="2" placeholder="Anything else you'd like me to know"></textarea>
 
                 <label for="customImage">Reference image (optional)</label>
                 <input type="file" id="customImage" name="image" accept="image/*">
