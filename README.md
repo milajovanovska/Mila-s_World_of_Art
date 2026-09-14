@@ -74,28 +74,6 @@ Responsive improvements include:
 * Optimized spacing and typography
 * Responsive modals and forms for all contact/request flows
 
-## Project Structure
-
-Mila-s_World_of_Art/
-│
-├── index.html
-├── about.html
-├── paintings.html
-├── exhibition.html
-├── merch.html
-├── contact.html
-│
-├── main.css
-│
-├── script.js
-├── theme.js
-├── menu.js
-├── contact.js
-├── paintings.js
-├── email-config.js
-│
-└── images/
-
 ## Configuration
 
 This site sends real emails from a fully static, backend-free deployment. `email-config.js` holds the public-facing configuration needed for that:
