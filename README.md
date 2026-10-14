@@ -4,7 +4,10 @@ A responsive portfolio and interactive digital gallery designed to showcase my a
 
 The project combines clean UI design, responsive layouts, subtle animations, and interactive contact/request features to create an immersive browsing experience while serving as my personal online portfolio.
 
-**Live Demo:** https://milajovanovska.github.io/Mila-s_World_of_Art/
+## Live Demo
+
+- **GitHub Pages:** [View Live Demo](ЛИНКОТ-ШТО-ВЕЌЕ-ГО-ИМАШ-ВО-README)
+- **Vercel:** [https://milas-world-of-art.vercel.app/](https://milas-world-of-art.vercel.app/)
 
 ## About the Project
 
