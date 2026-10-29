@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryItems = document.querySelectorAll('.gallery a');
 
     galleryItems.forEach((item, index) => {
-        item.style.transitionDelay = `${index * 120}ms`;
+        item.style.transitionDelay = `${(index % 4) * 120}ms`;
         observer.observe(item);
     });
 

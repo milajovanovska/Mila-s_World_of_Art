@@ -1,14 +1,28 @@
 let recaptchaConversationWidgetId = null;
 let recaptchaCustomWidgetId = null;
+let recaptchaApiReady = false;
+let contactDomReady = false;
 
-window.onRecaptchaApiLoad = function () {
+function renderContactRecaptchas() {
+    if (!recaptchaApiReady || !contactDomReady || recaptchaConversationWidgetId !== null) return;
+
     recaptchaConversationWidgetId = grecaptcha.render('recaptchaConversation', {
         sitekey: '6LcmN7ktAAAAALiV4lNaFJRe4CM0i5CnGiHemQm7'
     });
     recaptchaCustomWidgetId = grecaptcha.render('recaptchaCustom', {
         sitekey: '6LcmN7ktAAAAALiV4lNaFJRe4CM0i5CnGiHemQm7'
     });
+}
+
+window.onRecaptchaApiLoad = function () {
+    recaptchaApiReady = true;
+    renderContactRecaptchas();
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+    contactDomReady = true;
+    renderContactRecaptchas();
+});
 
 document.addEventListener('DOMContentLoaded', () => {
     const startBtn = document.getElementById('startConversationBtn');
