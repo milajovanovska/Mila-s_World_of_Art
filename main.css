@@ -16,7 +16,7 @@
     --bar-accent: #8e3a5b;
     --bar-line: rgba(58, 31, 44, 0.14);
 
-    --veil: linear-gradient(180deg, rgba(253, 249, 248, 0.86), rgba(253, 249, 248, 0.66));
+    --veil: linear-gradient(180deg, rgba(250, 249, 248, 0.9), rgba(253, 249, 248, 0.7));
     --img-shadow: 0 10px 30px rgba(58, 31, 44, 0.28);
     --img-shadow-hover: 0 20px 48px rgba(58, 31, 44, 0.38);
 
