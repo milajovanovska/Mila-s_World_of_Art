@@ -69,9 +69,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function openModal(card) {
         const title = card.dataset.title || 'Artwork';
         const statusEl = card.querySelector('.painting-status');
-        const status = statusEl ? statusEl.textContent.trim() : '';
+        const statusKey = statusEl ? (['available', 'reserved', 'sold'].find(k => statusEl.classList.contains(k)) || '') : '';
+        const status = statusKey.charAt(0).toUpperCase() + statusKey.slice(1);
         const info = (window.ARTWORK_DETAILS && window.ARTWORK_DETAILS[title]) || {};
-        const isSold = status.toLowerCase() === 'sold';
+        const isSold = statusKey === 'sold';
 
         let price = '';
         if (info.price) {
