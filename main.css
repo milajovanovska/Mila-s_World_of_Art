@@ -1415,6 +1415,13 @@ html.dark-mode .theme-switch-thumb {
     margin-top: 14px;
     overflow: hidden;
 }
+.recaptcha-note {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--accent);
+}
 
 @media (min-width: 769px) {
     .navbar {

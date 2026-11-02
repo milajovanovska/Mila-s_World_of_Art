@@ -1,27 +1,12 @@
 let recaptchaConversationWidgetId = null;
 let recaptchaCustomWidgetId = null;
-let recaptchaApiReady = false;
-let contactDomReady = false;
 
-function renderContactRecaptchas() {
-    if (!recaptchaApiReady || !contactDomReady || recaptchaConversationWidgetId !== null) return;
+RecaptchaHelper.register('recaptchaConversation', (id) => {
+    recaptchaConversationWidgetId = id;
+});
 
-    recaptchaConversationWidgetId = grecaptcha.render('recaptchaConversation', {
-        sitekey: '6LcmN7ktAAAAALiV4lNaFJRe4CM0i5CnGiHemQm7'
-    });
-    recaptchaCustomWidgetId = grecaptcha.render('recaptchaCustom', {
-        sitekey: '6LcmN7ktAAAAALiV4lNaFJRe4CM0i5CnGiHemQm7'
-    });
-}
-
-window.onRecaptchaApiLoad = function () {
-    recaptchaApiReady = true;
-    renderContactRecaptchas();
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-    contactDomReady = true;
-    renderContactRecaptchas();
+RecaptchaHelper.register('recaptchaCustom', (id) => {
+    recaptchaCustomWidgetId = id;
 });
 
 document.addEventListener('DOMContentLoaded', () => {

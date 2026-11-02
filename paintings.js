@@ -1,24 +1,10 @@
-const RECAPTCHA_SITE_KEY = '6LcmN7ktAAAAALiV4lNaFJRe4CM0i5CnGiHemQm7';
-
 let artworkWidgetId = null;
-let recaptchaApiReady = false;
-let paintingsDomReady = false;
 
-function renderArtworkRecaptcha() {
-    if (!recaptchaApiReady || !paintingsDomReady || artworkWidgetId !== null) return;
-    const holder = document.getElementById('recaptchaArtwork');
-    if (!holder) return;
-    artworkWidgetId = grecaptcha.render(holder, { sitekey: RECAPTCHA_SITE_KEY });
-}
-
-window.onRecaptchaApiLoad = function () {
-    recaptchaApiReady = true;
-    renderArtworkRecaptcha();
-};
+RecaptchaHelper.register('recaptchaArtwork', (id) => {
+    artworkWidgetId = id;
+});
 
 document.addEventListener('DOMContentLoaded', () => {
-    paintingsDomReady = true;
-    renderArtworkRecaptcha();
 
     const cards = document.querySelectorAll('.painting-card');
     const touchQuery = window.matchMedia('(hover: none)');
