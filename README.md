@@ -6,8 +6,7 @@ The project combines clean UI design, responsive layouts, subtle animations, and
 
 ## Live Demo
 
-- **GitHub Pages:** [View Live Demo](ЛИНКОТ-ШТО-ВЕЌЕ-ГО-ИМАШ-ВО-README)
-- **Vercel:** [https://milas-world-of-art.vercel.app/](https://milas-world-of-art.vercel.app/)
+[https://milas-world-of-art.vercel.app/](https://milas-world-of-art.vercel.app/)
 
 ## About the Project
 
