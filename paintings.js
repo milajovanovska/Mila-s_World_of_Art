@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     }
 
-    document.querySelectorAll('.details-btn').forEach(btn => {
+    document.querySelectorAll('.details-btn, .request-artwork-btn').forEach(btn => {
         btn.addEventListener('click', () => {
             const card = btn.closest('.painting-card');
             if (card) openModal(card);

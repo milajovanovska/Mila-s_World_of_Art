@@ -630,6 +630,33 @@ html.dark-mode .theme-switch-thumb {
     color: #3a1f2c;
     outline: none;
 }
+.request-artwork-btn {
+    margin-top: 8px;
+    padding: 9px 18px;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: var(--btn-grad);
+    color: #fff;
+    font-family: var(--font);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    box-shadow: var(--btn-shadow);
+    transition: transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.request-artwork-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--btn-shadow-hover);
+}
+
+.request-artwork-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
 
 @media (hover: hover) {
     .painting-card:hover img {
@@ -642,11 +669,86 @@ html.dark-mode .theme-switch-thumb {
         opacity: 1;
     }
 
-    .painting-card:hover .details-btn,
-    .painting-card:focus-within .details-btn {
+
+    .details-btn,
+    .request-artwork-btn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        max-width: calc(100% - 24px);
+        padding: 10px 22px;
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        -webkit-backdrop-filter: blur(6px);
+        backdrop-filter: blur(6px);
+        color: #fff;
+        font-family: var(--font);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        line-height: 1.4;
+        text-align: center;
+        text-transform: uppercase;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+                opacity 0.3s ease,
+                background 0.25s ease,
+                color 0.25s ease,
+                border-color 0.25s ease;
+    }
+
+    .details-btn:hover,
+    .details-btn:focus-visible,
+    .request-artwork-btn:hover,
+    .request-artwork-btn:focus-visible {
+        background: #fff;
+        border-color: #fff;
+        color: #3a1f2c;
+        outline: none;
+    }
+
+    @media (hover: hover) {
+        .painting-card:hover img {
+            transform: scale(1.06);
+            filter: brightness(0.65);
+        }
+
+        .painting-card:hover .painting-status,
+        .painting-card:focus-within .painting-status {
+            opacity: 1;
+        }
+
+        .painting-card:hover .details-btn,
+        .painting-card:focus-within .details-btn,
+        .painting-card:hover .request-artwork-btn,
+        .painting-card:focus-within .request-artwork-btn {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    .painting-card.is-active img {
+        filter: brightness(0.65);
+    }
+
+    .painting-card.is-active .painting-status {
+        opacity: 1;
+    }
+
+    .painting-card.is-active .details-btn,
+    .painting-card.is-active .request-artwork-btn {
         opacity: 1;
         pointer-events: auto;
     }
+
 }
 
 .painting-card.is-active img {

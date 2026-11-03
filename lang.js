@@ -77,7 +77,7 @@
         [`Questions about a piece you've seen`, `Имате прашање за некоја од изложените слики`],
         [`Tell me your idea`, `Споделете ја вашата идеја`],
         [`Share a concept you have in mind`, `Опишете што имате замислено`],
-        [`Request an artwork`, `Нарачајте слика`],
+        [`Request this artwork`, `Побарајте го ова дело`],
         [`Ask about buying or reserving a piece`, `Прашајте за купување или резервација на дело`],
         [`See an artwork in my space`, `Проверете како би изгледала сликата во вашиот простор`],
         [`Find out how a piece could look at home`, `Погледнете како би се вклопило делото во вашиот дом`],
