@@ -1,8 +1,8 @@
 let artworkWidgetId = null;
 
-RecaptchaHelper.register('recaptchaArtwork', (id) => {
-    artworkWidgetId = id;
-});
+// RecaptchaHelper.register('recaptchaArtwork', (id) => {
+//     artworkWidgetId = id;
+// });
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -148,16 +148,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!validateRequiredFields(form)) return;
 
-        if (typeof grecaptcha === 'undefined' || artworkWidgetId === null) {
-            alert('The security check did not load. Please refresh the page and try again.');
-            return;
-        }
-
-        const captchaToken = grecaptcha.getResponse(artworkWidgetId);
-        if (!captchaToken) {
-            alert('Please confirm the "I am not a robot" checkbox before sending.');
-            return;
-        }
+        // if (typeof grecaptcha === 'undefined' || artworkWidgetId === null) {
+        //     alert('The security check did not load. Please refresh the page and try again.');
+        //     return;
+        // }
+        //
+        // const captchaToken = grecaptcha.getResponse(artworkWidgetId);
+        // if (!captchaToken) {
+        //     alert('Please confirm the "I am not a robot" checkbox before sending.');
+        //     return;
+        // }
 
         if (typeof emailjs === 'undefined') {
             alert('The email service did not load. Please refresh the page and try again.');
@@ -184,20 +184,20 @@ document.addEventListener('DOMContentLoaded', () => {
             subject: `Artwork Inquiry - ${form.dataset.artworkTitle}`,
             from_name: form.elements['name'].value.trim(),
             from_email: form.elements['email'].value.trim(),
-            message: `${details}\n\n${userMessage || '(no message provided)'}`,
-            'g-recaptcha-response': captchaToken
+            message: `${details}\n\n${userMessage || '(no message provided)'}`
+            //'g-recaptcha-response': captchaToken
         };
 
         emailjs.send(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, templateParams)
             .then(() => {
                 showView(successView);
                 form.reset();
-                grecaptcha.reset(artworkWidgetId);
+               // grecaptcha.reset(artworkWidgetId);
             })
             .catch((err) => {
                 console.error('EmailJS error:', err);
                 alert('Something went wrong sending your inquiry. Please try again, or email me directly at milasworldofart@yahoo.com.');
-                grecaptcha.reset(artworkWidgetId);
+              //  grecaptcha.reset(artworkWidgetId);
             })
             .finally(() => {
                 submitBtn.disabled = false;

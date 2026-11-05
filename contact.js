@@ -1,13 +1,13 @@
 let recaptchaConversationWidgetId = null;
 let recaptchaCustomWidgetId = null;
-
-RecaptchaHelper.register('recaptchaConversation', (id) => {
-    recaptchaConversationWidgetId = id;
-});
-
-RecaptchaHelper.register('recaptchaCustom', (id) => {
-    recaptchaCustomWidgetId = id;
-});
+//
+// RecaptchaHelper.register('recaptchaConversation', (id) => {
+//     recaptchaConversationWidgetId = id;
+// });
+//
+// RecaptchaHelper.register('recaptchaCustom', (id) => {
+//     recaptchaCustomWidgetId = id;
+// });
 
 document.addEventListener('DOMContentLoaded', () => {
     const startBtn = document.getElementById('startConversationBtn');
@@ -29,8 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const customSubmitBtn = document.getElementById('conversationCustomSubmitBtn');
     const customBackBtn = document.getElementById('conversationCustomBackBtn');
 
+    const comingSoonView = document.getElementById('conversationComingSoonView');
+    const comingSoonBackBtn = document.getElementById('conversationComingSoonBackBtn');
+
     function showView(view) {
-        [optionsView, formView, successView, customFormView].forEach(v => { if (v) v.hidden = (v !== view); });
+        [optionsView, formView, successView, customFormView, comingSoonView].forEach(v => { if (v) v.hidden = (v !== view); });
     }
 
     function openModal() {
@@ -73,6 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 showView(customFormView);
                 return;
             }
+            if (btn.dataset.topic === 'See an artwork in my space') {
+                showView(comingSoonView);
+                return;
+            }
             formTitle.textContent = btn.querySelector('.conversation-option-title').textContent;
             form.dataset.topic = btn.dataset.topic;
             showView(formView);
@@ -81,6 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     backBtn.addEventListener('click', () => showView(optionsView));
     if (customBackBtn) customBackBtn.addEventListener('click', () => showView(optionsView));
+
+    if (comingSoonBackBtn) comingSoonBackBtn.addEventListener('click', () => showView(optionsView));
 
     function uploadReferenceImage(file) {
         if (!file) return Promise.resolve('');
@@ -102,11 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!validateRequiredFields(customForm)) return;
 
-            const captchaToken = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse(recaptchaCustomWidgetId) : '';
-            if (!captchaToken) {
-                alert('Please confirm the "I am not a robot" checkbox before sending.');
-                return;
-            }
+            // const captchaToken = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse(recaptchaCustomWidgetId) : '';
+            // if (!captchaToken) {
+            //     alert('Please confirm the "I am not a robot" checkbox before sending.');
+            //     return;
+            // }
+
 
             const file = customForm.elements['image'].files[0];
 
@@ -137,8 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         subject: 'New Custom Artwork Request',
                         from_name: customForm.elements['name'].value.trim(),
                         from_email: customForm.elements['email'].value.trim(),
-                        message: messageBody,
-                        'g-recaptcha-response': captchaToken
+                        message: messageBody
+                      //  'g-recaptcha-response': captchaToken
                     };
 
                     return emailjs.send(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, templateParams);
@@ -146,12 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(() => {
                     showView(successView);
                     customForm.reset();
-                    grecaptcha.reset(recaptchaCustomWidgetId);
+           //         grecaptcha.reset(recaptchaCustomWidgetId);
                 })
                 .catch((err) => {
                     console.error('Custom request error:', err);
                     alert('Something went wrong sending your idea. Please try again, or email me directly at milasworldofart@yahoo.com.');
-                    grecaptcha.reset(recaptchaCustomWidgetId);
+          //          grecaptcha.reset(recaptchaCustomWidgetId);
                 })
                 .finally(() => {
                     customSubmitBtn.disabled = false;
@@ -165,11 +175,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!validateRequiredFields(form)) return;
 
-        const captchaToken = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse(recaptchaConversationWidgetId) : '';
-        if (!captchaToken) {
-            alert('Please confirm the "I am not a robot" checkbox before sending.');
-            return;
-        }
+        // const captchaToken = typeof grecaptcha !== 'undefined' ? grecaptcha.getResponse(recaptchaConversationWidgetId) : '';
+        // if (!captchaToken) {
+        //     alert('Please confirm the "I am not a robot" checkbox before sending.');
+        //     return;
+        // }
 
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending...';
@@ -178,8 +188,8 @@ document.addEventListener('DOMContentLoaded', () => {
             subject: form.dataset.topic,
             from_name: form.elements['name'].value.trim(),
             from_email: form.elements['email'].value.trim(),
-            message: form.elements['message'].value.trim(),
-            'g-recaptcha-response': captchaToken
+            message: form.elements['message'].value.trim()
+        //    'g-recaptcha-response': captchaToken
         };
 
         emailjs.send(window.EMAILJS_SERVICE_ID, window.EMAILJS_TEMPLATE_ID, templateParams)

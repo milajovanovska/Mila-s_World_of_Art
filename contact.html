@@ -150,9 +150,9 @@
                 <label for="conversationMessage">Your message</label>
                 <textarea id="conversationMessage" name="message" rows="4" required></textarea>
 
-                <div class="recaptcha-wrapper">
-                    <div id="recaptchaConversation"></div>
-                </div>
+<!--                <div class="recaptcha-wrapper">-->
+<!--                    <div id="recaptchaConversation"></div>-->
+<!--                </div>-->
 
                 <button type="submit" class="artwork-request-submit" id="conversationSubmitBtn">Send message</button>
             </form>
@@ -199,14 +199,18 @@
                 <p class="artwork-request-status">A reference image is inspiration only. It won't be reproduced
                     exactly.</p>
 
-                <div class="recaptcha-wrapper">
-                    <div id="recaptchaCustom"></div>
-                </div>
+<!--                <div class="recaptcha-wrapper">-->
+<!--                    <div id="recaptchaCustom"></div>-->
+<!--                </div>-->
 
                 <button type="submit" class="artwork-request-submit" id="conversationCustomSubmitBtn">Send idea</button>
             </form>
         </div>
-
+        <div class="conversation-view" id="conversationComingSoonView" hidden>
+            <button type="button" class="conversation-back-btn" id="conversationComingSoonBackBtn">Back</button>
+            <h3 class="conversation-modal-title">Coming soon</h3>
+            <p class="conversation-modal-subtitle">This feature is currently in progress. Soon you'll be able to see how an artwork would look on your wall.</p>
+        </div>
         <div class="conversation-view" id="conversationSuccessView" hidden>
             <h3 class="conversation-modal-title">Message sent</h3>
             <p class="conversation-modal-subtitle">Thank you! I'll get back to you soon.</p>
@@ -223,9 +227,9 @@
 <script src="theme.js"></script>
 <script src="menu.js"></script>
 <script src="lang.js"></script>
-<script src="recaptcha-helper.js"></script>
+<!--<script src="recaptcha-helper.js"></script>-->
 <script src="contact.js"></script>
-<script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaApiLoad&render=explicit" async defer></script>
+<!--<script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaApiLoad&render=explicit" async defer></script>-->
 
 </body>
 </html>
