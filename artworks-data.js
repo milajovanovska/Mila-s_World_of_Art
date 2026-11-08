@@ -1,5 +1,5 @@
 window.ARTWORK_DETAILS = {
-    "Delicate lace": { technique: "Oil & Knife Art", dimensions: "50x70cm", price: "350" },
+    "Delicate Lace": { technique: "Oil & Knife Art", dimensions: "50x70cm", price: "350" },
     "Pearl muse": { technique: "Oil & Knife Art", dimensions: "50x70cm", price: "350" },
     "The Inner Landscape": { technique: "Oil & Knife Art", dimensions: "50x70cm", price: "250" },
     "The Precious Exception": { technique: "Oil & Knife Art", dimensions: "50x70cm", price: "270" },
